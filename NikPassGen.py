@@ -2,8 +2,7 @@ import random
 import string
 
 
-def generate_passwords(nickname, count=100):
-    passwords = []
+def generate_passwords(nickname, count=1000000):
     characters = string.ascii_letters + string.digits + string.punctuation
 
     for _ in range(count):
@@ -16,15 +15,11 @@ def generate_passwords(nickname, count=100):
 
         # Генерация пароля с ником в середине
         password = prefix + mutated_nickname + suffix
-        passwords.append(password)
 
-    return passwords
+        # Выводим пароль сразу
+        print(password)
 
 
 # Пример использования:
 nickname = input("Введите никнейм: ")
-generated_passwords = generate_passwords(nickname)
-
-# Выводим первые 100 паролей, можно поменять значение на тысячи:
-for i, password in enumerate(generated_passwords[:100], 1):
-    print(f"{i}: {password}")
+generate_passwords(nickname)
